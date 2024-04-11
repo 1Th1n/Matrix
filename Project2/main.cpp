@@ -1,4 +1,4 @@
-//ÎÄ¼şÃû:exp6-5.cpp
+//æ–‡ä»¶å:exp6-5.cpp
 #include<iostream>
 #include<algorithm>
 #include<fstream>
@@ -8,21 +8,21 @@
 using namespace std;
 ifstream instream, instream2;
 ofstream outstream;
-int value(int a[], int i, int j)	//·µ»ØÑ¹Ëõ´æ´¢aÖĞA[i][j]Ö®Öµ
+int value(int a[], int i, int j)	//è¿”å›å‹ç¼©å­˜å‚¨aä¸­A[i][j]ä¹‹å€¼
 {
 	if (i >= j)
 		return a[(i * (i + 1)) / 2 + j];
 	else
 		return a[(j * (j + 1)) / 2 + i];
 }
-void madd(int a[], int b[], int c[][N])	//ÇóÑ¹Ëõ´æ´¢aºÍbµÄºÍ
+void madd(int a[], int b[], int c[][N])	//æ±‚å‹ç¼©å­˜å‚¨aå’Œbçš„å’Œ
 {
 	int i, j;
 	for (i = 0; i < N; i++)
 		for (j = 0; j < N; j++)
 			c[i][j] = value(a, i, j) + value(b, i, j);
 }
-void mult(int a[], int b[], int c[][N])	//ÇóÑ¹Ëõ´æ´¢aºÍbµÄ³Ë»ı
+void mult(int a[], int b[], int c[][N])	//æ±‚å‹ç¼©å­˜å‚¨aå’Œbçš„ä¹˜ç§¯
 {
 	int i, j, k, s;
 	for (i = 0; i < N; i++)
@@ -34,7 +34,7 @@ void mult(int a[], int b[], int c[][N])	//ÇóÑ¹Ëõ´æ´¢aºÍbµÄ³Ë»ı
 			c[i][j] = s;
 		}
 }
-void disp1(int a[])	//Êä³öÑ¹Ëõ´æ´¢a
+void disp1(int a[])	//è¾“å‡ºå‹ç¼©å­˜å‚¨a
 {
 	int i, j;
 	for (i = 0; i < N; i++)
@@ -44,7 +44,7 @@ void disp1(int a[])	//Êä³öÑ¹Ëõ´æ´¢a
 		outstream << "\n";
 	}
 }
-void disp2(int c[][N])	//Êä³ö¶Ô³Æ¾ØÕóc
+void disp2(int c[][N])	//è¾“å‡ºå¯¹ç§°çŸ©é˜µc
 {
 	int i, j;
 	for (i = 0; i < N; i++)
@@ -54,7 +54,7 @@ void disp2(int c[][N])	//Êä³ö¶Ô³Æ¾ØÕóc
 		outstream << "\n";
 	}
 }
-void disp3(int a[])	//Êä³öÑ¹Ëõ´æ´¢a
+void disp3(int a[])	//è¾“å‡ºå‹ç¼©å­˜å‚¨a
 {
 	int i, j;
 	for (i = 0; i < N; i++)
@@ -64,7 +64,7 @@ void disp3(int a[])	//Êä³öÑ¹Ëõ´æ´¢a
 		printf("\n");
 	}
 }
-void disp4(int c[][N])	//Êä³ö¶Ô³Æ¾ØÕóc
+void disp4(int c[][N])	//è¾“å‡ºå¯¹ç§°çŸ©é˜µc
 {
 	int i, j;
 	for (i = 0; i < N; i++)
@@ -91,10 +91,10 @@ int main()
 	}
 	madd(j, k, c3);
 	mult(j, k, c4);
-	printf("j¾ØÕó:\n"); disp3(j);
-	printf("k¾ØÕó:\n"); disp3(k);
+	printf("jçŸ©é˜µ:\n"); disp3(j);
+	printf("kçŸ©é˜µ:\n"); disp3(k);
 	printf("j+k:\n"); disp4(c3);
-	printf("j¡Ák:\n"); disp4(c4);
+	printf("jÃ—k:\n"); disp4(c4);
 
 
 	int a[M] = { 0 };
@@ -107,13 +107,13 @@ int main()
 	for (int i = 0; i < 10; i++)instream2 >> b[i];
 	madd(a, b, c1);
 	mult(a, b, c2);
-	outstream << "a¾ØÕó:\n";
+	outstream << "açŸ©é˜µ:\n";
 	disp1(a);
-	outstream << "b¾ØÕó:\n";
+	outstream << "bçŸ©é˜µ:\n";
 	disp1(b);
 	outstream << "a+b:\n";
 	disp2(c1);
-	outstream << "a¡Áb:\n";
+	outstream << "aÃ—b:\n";
 	disp2(c2);
 	instream.close();
 	instream2.close();
@@ -123,7 +123,7 @@ int main()
 
 	return 1;
 
-	/*¶Ô³Æ¾ØÕóMµÄµÚiĞĞºÍµÚjÁĞµÄÔªËØµÄÊı¾İ´æ´¢ÔÚÒ»Î¬Êı×éaÖĞµÄÎ»ÖÃkµÄ¼ÆËã¹«Ê½:
-		*1¡¢µ±i´óÓÚ»òµÈÓÚjÊ±£¬k = (i * (i + 1)) / 2 + j(ÏÂÈı½Ç)
-		*2¡¢µ±iĞ¡ÓÚjÊ±£¬k = (j * (j + 1)) / 2 + i(ÉÏÈı½Ç)*/
+	/*å¯¹ç§°çŸ©é˜µMçš„ç¬¬iè¡Œå’Œç¬¬jåˆ—çš„å…ƒç´ çš„æ•°æ®å­˜å‚¨åœ¨ä¸€ç»´æ•°ç»„aä¸­çš„ä½ç½®kçš„è®¡ç®—å…¬å¼:
+		*1ã€å½“iå¤§äºæˆ–ç­‰äºjæ—¶ï¼Œk = (i * (i + 1)) / 2 + j(ä¸‹ä¸‰è§’)
+		*2ã€å½“iå°äºjæ—¶ï¼Œk = (j * (j + 1)) / 2 + i(ä¸Šä¸‰è§’)*
 }
