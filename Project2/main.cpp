@@ -95,10 +95,12 @@ start:	cout << "===============================请选择输入方式============
 	int select1 = 2;
 	int select2 = 2;
 	cin >> select;
+	
 	switch (select)
 	{
 	  case 1:
 		  cout << endl;
+		  cout << "请选择你目前的情况" << endl;
 		  cout << "1.我还未在文件中输入数组" << endl;
 		  cout << "2.我已在文件中输入数组" << endl<<endl;
 		  scanf_s("%d", &select1);
