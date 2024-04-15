@@ -1,4 +1,4 @@
-//文件名:exp6-5.cpp
+﻿//文件名:exp6-5.cpp
 #include<iostream>
 #include<algorithm>
 #include<fstream>
@@ -80,21 +80,110 @@ int main()
 	int j[M];
 	int k[M];
 	int c3[N][N], c4[N][N];
-	for (int i = 0; i < 10; i++)
-	{
-		cin >> j[i];
-	}
 
-	for (int l = 0; l < 10; l++)
+	cout << "/*-----------------------------------------------------------------------------------*/";
+	cout << endl;
+	cout << "这是一个当你输入两个一维数组时，可以转化为两个对称矩阵并输出两对称矩阵之和与之积的程序";
+	cout << endl;
+	cout << "------------------------------------------------------------------------------------*/"<< endl<<endl;
+start:	cout << "===============================请选择输入方式=========================================" << endl;
+	cout << "=================================1.文件输入===========================================" << endl;
+	cout << "=================================2.手动输入===========================================" << endl;
+	cout << "======================================================================================" << endl<<endl;
+
+	int select = 2;
+	int select1 = 2;
+	int select2 = 2;
+	cin >> select;
+	switch (select)
 	{
-		cin >> k[l];
+	  case 1:
+		  cout << endl;
+		  cout << "1.我还未在文件中输入数组" << endl;
+		  cout << "2.我已在文件中输入数组" << endl<<endl;
+		  scanf_s("%d", &select1);
+		  switch (select1)
+		  {
+		  case 2:
+			  cout << endl << "请前往解决方案管理器打开项目文件夹查看，程序的运行结果已在exp6-5out.txt文件中生成......" << endl;
+			  break;
+		  case 1:
+			  cout << endl << "请输入‘0’退出当前窗口后在解决方案管理器打开项目文件夹，修改exp6-5in1.txt与exp6-5in2.txt文件，并再次运行" << endl;
+			  cout << endl;
+			  cout << "输入范例:1 2 3 4 5 6 7 8 9 10";
+			  break;
+		  }
+		  cout << endl << endl; printf("输入‘0’退出，输入‘1’重新选择案例:");
+		 
+		  scanf_s("%d", &select2);
+		  switch (select2)
+		  {
+		  case 1:
+			  goto start;
+			  break;
+		  case 0:
+			  cout << endl;
+			  cout << "感谢你的使用:)";
+			  cout << endl;
+			  cout << "@author 陈政元";
+			  cout << endl;
+			  break;
+		  }
+		  break;
+
+
+	  case 2:
+		  cout << endl;
+		  cout << "输入范例:1 2 3 4 5 6 7 8 9 10";
+		  cout << endl;
+		  cout << endl;
+		  cout << "接下来请输入你的第一个一维数组吧！";
+		  cout << endl;
+		  cout << endl;
+		  cout << "第一个一维数组:";
+		  for (int i = 0; i < 10; i++)
+		  {
+			  cin >> j[i];
+		  }
+		  cout << endl;
+		  cout << "第二个一维数组:";
+
+		  for (int l = 0; l < 10; l++)
+		  {
+			  cin >> k[l];
+		  }
+		  madd(j, k, c3);
+		  mult(j, k, c4);
+		  cout << endl;
+		  printf("你输入的第一个矩阵:\n"); disp3(j);
+		  cout << endl;
+		  printf("你输入的第二个矩阵:\n"); disp3(k);
+		  cout << endl;
+		  printf("两个矩阵之和:\n"); disp4(c3);
+		  cout << endl;
+		  printf("两个矩阵乘积:\n"); disp4(c4);
+		  cout << endl;
+
+
+		  cout << endl << endl; printf("输入‘0’退出，输入‘1’重新选择案例:");
+
+		  scanf_s("%d", &select2);
+		  switch (select2)
+		  {
+		  case 1:
+			  goto start;
+			  break;
+		  case 0:
+			  cout << endl;
+			  cout << "感谢你的使用:)";
+			  cout << endl;
+			  cout << "@author 陈政元";
+			  cout << endl;
+			  break;
+		  }
+		  break;
 	}
-	madd(j, k, c3);
-	mult(j, k, c4);
-	printf("j矩阵:\n"); disp3(j);
-	printf("k矩阵:\n"); disp3(k);
-	printf("j+k:\n"); disp4(c3);
-	printf("j×k:\n"); disp4(c4);
+	
 
 
 	int a[M] = { 0 };
