@@ -1,5 +1,4 @@
-# Project2
-
+# Addition and multiplication of symmetry matrices
 # 数据结构实训作业
 
 #### 介绍
